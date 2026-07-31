@@ -1,6 +1,188 @@
 # Browser
 
-Aims to be fast, lightweight, secure, independent web browser.
+A fast, lightweight, secure, independent, cross-platform web browser written in **Zig** using the operating system's **native WebView**.
+
+## Goals
+
+- Cross-platform (Linux, MacOS, Windows)
+- Native look and feel
+- Fast startup
+- Small executable
+- Simple architecture
+- Minimal external dependencies
+- Low RAM usage
+- Learn browser development without implementing an HTML/CSS/JS engine
+
+## Philosophy
+
+Hello Browser is **not** a browser engine.
+
+Instead, it provides a browser application built around the platform's native WebView.
+
+Rendering is delegated to:
+
+| Platform | Engine              |
+| -------- | ------------------- |
+| Linux    | WebKitGTK           |
+| macOS    | WKWebView           |
+| Windows  | WebView2 (Chromium) |
+
+The browser itself is responsible for everything around the rendering engine.
+
+## Planned Features
+
+### Core
+
+- Main window
+- Native WebView
+- Address bar
+- Back
+- Forward
+- Reload
+- Stop loading
+- Home page
+
+### Navigation
+
+- Open URL
+- Open local HTML files
+- Multiple tabs
+- New window
+
+### History
+
+- Navigation history
+- Recently closed tabs
+- Session restore
+
+### Bookmarks
+
+- Add bookmark
+- Remove bookmark
+- Bookmark manager
+
+### Settings
+
+- Homepage
+- Search engine
+- Downloads location
+- Theme
+- Privacy options
+
+### Downloads
+
+- Download manager
+- Progress indicator
+- Pause/Resume
+- Open downloaded files
+
+### UI
+
+- Toolbar
+- Status bar
+- Find in page
+- Zoom controls
+- Fullscreen
+
+### Privacy
+
+- Clear browsing data
+- Cookie management
+- Private browsing
+
+### Developer
+
+- Developer tools (if supported)
+- View source
+- Console output
+
+## Project Structure
+
+```
+hello-browser/
+│
+├── build.zig
+├── build.zig.zon
+├── README.md
+│
+├── src/
+│   ├── main.zig
+│   ├── app.zig
+│   ├── browser.zig
+│   ├── window.zig
+│   ├── webview.zig
+│   ├── history.zig
+│   ├── bookmarks.zig
+│   ├── settings.zig
+│   └── ui/
+│
+├── assets/
+│
+└── docs/
+```
+
+## Architecture
+
+```
++---------------------------+
+|        Browser UI         |
+|---------------------------|
+| Tabs                      |
+| Toolbar                   |
+| Address Bar               |
+| Bookmarks                 |
+| History                   |
+| Settings                  |
+|---------------------------|
+|      Native WebView       |
+|---------------------------|
+| HTML                      |
+| CSS                       |
+| JavaScript                |
+| Networking                |
+| Cookies                   |
+| Rendering                 |
++---------------------------+
+```
+
+## Future Roadmap
+
+### Milestone 1
+
+- Window
+- Embedded WebView
+- Open URL
+- Reload
+- Back
+- Forward
+
+### Milestone 2
+
+- Tabs
+- History
+- Bookmarks
+
+### Milestone 3
+
+- Downloads
+- Settings
+- Find in page
+- Zoom
+
+### Milestone 4
+
+- Private mode
+- Better UI
+
+### Milestone 5
+
+- Cross-platform polish
+- Packaging
+- Automatic updates
+
+## License
+
+MIT
 
 ## Comparing browser features
 

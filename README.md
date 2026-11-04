@@ -1,6 +1,6 @@
 # Browser
 
-A fast, lightweight, secure, independent, cross-platform web browser written in **Zig** using the operating system's **native WebView**.
+A fast, lightweight, secure, independent, cross-platform web browser written in **Zig**.
 
 ## Goals
 
@@ -166,6 +166,7 @@ rune src/main.zig dist/browser-windows-x86_64 --target=windows-x86_64
 ## Done
 
 - parse html (90%)
+- reading files from disk and from web
 
 ## License
 

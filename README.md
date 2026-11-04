@@ -13,22 +13,6 @@ A fast, lightweight, secure, independent, cross-platform web browser written in 
 - Low RAM usage
 - Learn browser development without implementing an HTML/CSS/JS engine
 
-## Philosophy
-
-Hello Browser is **not** a browser engine.
-
-Instead, it provides a browser application built around the platform's native WebView.
-
-Rendering is delegated to:
-
-| Platform | Engine              |
-| -------- | ------------------- |
-| Linux    | WebKitGTK           |
-| macOS    | WKWebView           |
-| Windows  | WebView2 (Chromium) |
-
-The browser itself is responsible for everything around the rendering engine.
-
 ## Planned Features
 
 ### Core
@@ -99,7 +83,7 @@ The browser itself is responsible for everything around the rendering engine.
 ## Project Structure
 
 ```
-hello-browser/
+browser/
 │
 ├── build.zig
 ├── build.zig.zon
@@ -121,9 +105,26 @@ hello-browser/
 └── docs/
 ```
 
+## Development
+
+```sh
+# run app
+rune src/main.zig
+
+# test all files
+rune test.zig
+
+# build
+rm -rf dist
+rune src/main.zig dist/browser-linux-x86_64   --target=linux-x86_64
+rune src/main.zig dist/browser-linux-aarch64  --target=linux-aarch64
+rune src/main.zig dist/browser-linux-aarch64  --target=macos-aarch64
+rune src/main.zig dist/browser-macos-x86_64   --target=macos-x86_64
+rune src/main.zig dist/browser-windows-x86_64 --target=windows-x86_64
+```
+
 ## TODO
 
-- parse html
 - render html
 - parse css
 - render css
@@ -161,6 +162,10 @@ hello-browser/
 - Cross-platform polish
 - Packaging
 - Automatic updates
+
+## Done
+
+- parse html (90%)
 
 ## License
 
